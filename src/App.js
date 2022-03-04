@@ -1,37 +1,28 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+  Routes,
   Route,
-  Link,useHistory
+  Link,useNavigate
 } from "react-router-dom";
 import Home from "./component/home"
 import About from "./component/about"
 import Service from "./component/service"
 export default function App() {
 
-const history = useHistory()
+const navigate = useNavigate()
 
 
   return (
-    <Router>
-
-
-      <Link to="/">Home</Link>
-
-      <Link to="/about">About</Link>
-
-      <Link to="/service">Service</Link>
-<button onClick={()=>{history.push("/service")}}>SERVICE</button>
-
-      <Route path="/"> <Home /> </Route>
-      <Route path="/about"> <About />  </Route>
-      <Route path="/service"> <Service />  </Route>
+<Routes>
 
 
 
+      <Route path="/" element={<Home/>}></Route>
+      <Route path="/about" element={<About/>}></Route>
+      <Route path="/service" element={<Service/>}></Route>
 
+      </Routes>
 
-    </Router>
   );
 }
 
